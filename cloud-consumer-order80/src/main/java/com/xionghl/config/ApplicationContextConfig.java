@@ -1,0 +1,18 @@
+package com.xionghl.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+/** 获取RestTemplate 对象给controller 让controller去远程调用服务提供者8001端口得服务
+ * @Author:xionghl
+ * @Date:2021/9/24 6:52 上午
+ */
+@Configuration
+public class ApplicationContextConfig {
+
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+}

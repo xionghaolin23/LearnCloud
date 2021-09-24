@@ -1,0 +1,14 @@
+
+ 注册中心 eureka  7071端口
+
+eureka 两大组件  一个是eurekaServer  一个是eurekaClient
+
+
+一个服务端一个客户端
+
+客户端eurekaClient （提供服务方 也就是8001端口）把服务注册到服务端  eurekaServer，代表服务注册中心
+
+客户端和服务端通过心跳机制 确认 客户端是否还在提供服务
+
+
+http://localhost:7001/
