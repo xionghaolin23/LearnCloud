@@ -21,7 +21,8 @@ public class OrderController {
     @Resource
     private RestTemplate restTemplate;
 
-    private static final String PAYMENT_URL = "http://localhost:8001";
+    //private static final String PAYMENT_URL = "http://localhost:8001";
+    private static final String PAYMENT_URL = "http://CLOUD-PROVIDER-SERVICE";
 
     @PostMapping("/consumer/create")
     public CommonResult<Payment> create(@RequestBody Payment payment) {
@@ -35,7 +36,7 @@ public class OrderController {
     @GetMapping("/consumer/get/{id}")
     public CommonResult<Payment> get(@PathVariable("id") String id) {
         log.info("查询调用开始....");
-        CommonResult commonResult = restTemplate.getForObject(PAYMENT_URL + "payment/get/" + id, CommonResult.class);
+        CommonResult commonResult = restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);
         log.info(commonResult.toString());
         return commonResult;
     }
