@@ -38,9 +38,9 @@ public class PaymentController {
         log.info("*****插入结果：" + result);
         log.info("因为做的是集群，所以看看80用户请求打到哪台服务器上，请求服务端的端口为：" + serverPort);
         if (result > 0) {
-            return new CommonResult(200, "插入数据成功："+serverPort, result);
+            return new CommonResult(200, "插入数据成功：" + serverPort, result);
         } else {
-            return new CommonResult(444, "插入数据失败："+serverPort, null);
+            return new CommonResult(444, "插入数据失败：" + serverPort, null);
         }
     }
 
@@ -51,9 +51,9 @@ public class PaymentController {
         log.info("*****查询结果：" + payment);
         log.info("因为做的是集群，所以看看80用户请求打到哪台服务器上，请求服务端的端口为：" + serverPort);
         if (payment != null) {
-            return new CommonResult(200, "查询成功："+serverPort, payment);
+            return new CommonResult(200, "查询成功：" + serverPort, payment);
         } else {
-            return new CommonResult(444, "没有对应记录,查询ID：" + id+"端口："+serverPort, null);
+            return new CommonResult(444, "没有对应记录,查询ID：" + id + "端口：" + serverPort, null);
         }
     }
 
@@ -62,14 +62,23 @@ public class PaymentController {
         //得到所有的微服务
         List<String> services = discoveryClient.getServices();
         for (String serviceName : services) {
-            log.info("服务名："+serviceName);
+            log.info("服务名：" + serviceName);
         }
         //得到某个微服务的具体实例
         List<ServiceInstance> instances = discoveryClient.getInstances("cloud-provider-service");
         for (ServiceInstance instance : instances) {
-            log.info("实例ID："+instance.getInstanceId()+"实例主机名:"+instance.getHost()+"实例端口:"+instance.getPort()+"实例Uri:"+instance.getUri());
+            log.info("实例ID：" + instance.getInstanceId() + "实例主机名:" + instance.getHost() + "实例端口:" + instance.getPort() + "实例Uri:" + instance.getUri());
         }
         return new CommonResult(200, "查询成功：", this.discoveryClient);
     }
 
+    /**
+     * 测试自定义的符在均衡规则
+     *
+     * @return
+     */
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
 }
