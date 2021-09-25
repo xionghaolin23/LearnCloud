@@ -12,3 +12,5 @@ eureka 两大组件  一个是eurekaServer  一个是eurekaClient
 
 
 http://localhost:7001/
+
+eureka AP  zookeeper CP 原则
