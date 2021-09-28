@@ -15,7 +15,7 @@ public class ConfigClientController {
     /**
      *  消费
      *  相当于配置了config后，就把config服务端里的变量引入进来了
-     * https://gitee.com/xionghaolin/springcloud-config/blob/master/config-test.yml
+     *  https://gitee.com/xionghaolin/springcloud-config/blob/master/config-test.yml
      */
     @Value("${dev.name}")
     private String configInfo;
