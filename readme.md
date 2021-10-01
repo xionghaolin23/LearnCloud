@@ -117,9 +117,7 @@ SpringCloud 和 springCloud Alibaba 目前是最主流的微服务框架组合
 
 3,Feign改为OpenFeign
 
-4,Hystrix停更,改为resilence4j
-
-​ 或者阿里巴巴的sentienl
+4,Hystrix停更,改为resilence4j，或者阿里巴巴的sentienl
 
 5.Zuul改为gateway
 
